@@ -3,21 +3,22 @@
   "version": "1.0.0",
   "description": "This package includes a temporary fix for patch-package to support Yarn until an official fix is released by the original package author.",
   "main": "dist/index.js",
-  "repository": "git+https://github.com/ShadyElsharnoby/patch-package.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShadyElsharnoby/patch-package.git"
+  },
   "author": "shadyelsharnoby",
   "license": "MIT",
   "engines": {
     "node": ">=14",
     "npm": ">5"
   },
-  "bin": {
-    "patch-package": "./index.js"
-  },
+  "bin": "index.js",
   "scripts": {
     "prepublishOnly": "yarn run clean && yarn run build",
     "build": "tsc --project tsconfig.build.json",
     "new-integration-test": "ts-node integration-tests/newIntegrationTest.ts",
-    "clean": "rimraf dist patch-package.test*.tgz",
+    "clean": "rimraf dist",
     "format": "prettier --no-semi --write --trailing-comma=all src{/**,}/*.ts integration-tests{/**,}/*.ts property-based-tests{/**,}/*.ts",
     "prepack": "rimraf dist/**/*.test.js",
     "test": "./run-tests.sh --runInBand"
@@ -98,5 +99,12 @@
     "patch-package-banner.png",
     "README.md"
   ],
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "keywords": [
+    "patch-package"
+  ],
+  "bugs": {
+    "url": "https://github.com/ShadyElsharnoby/patch-package/issues"
+  },
+  "homepage": "https://github.com/ShadyElsharnoby/patch-package#readme"
 }
